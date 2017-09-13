@@ -16,7 +16,10 @@ public:
   Engine();
   ~Engine();
 
-  bool initialize(char* windowTitle);
+  bool Initialize(char* windowTitle);
+  void Update();
+  void Render();
+
 private:
   static GLFWwindow* window;
 };
