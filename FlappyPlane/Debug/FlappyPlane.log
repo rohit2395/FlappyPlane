@@ -1,3 +1,4 @@
-﻿  Engine.cpp
+﻿  FlappyPlane.cpp
+c:\users\gs-1558\documents\visual studio 2017\projects\flappyplane\flappyplane\flappyplane.cpp(27): warning C4305: 'argument': truncation from 'double' to 'float'
   FlappyPlane.vcxproj -> C:\Users\GS-1558\Documents\Visual Studio 2017\Projects\FlappyPlane\Debug\FlappyPlane.exe
   FlappyPlane.vcxproj -> C:\Users\GS-1558\Documents\Visual Studio 2017\Projects\FlappyPlane\Debug\FlappyPlane.pdb (Partial PDB)
