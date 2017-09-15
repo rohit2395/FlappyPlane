@@ -1,5 +1,6 @@
 # Build results
-Debug
-FlappyPlane\Debug
+[Dd]ebug/
+
+FlappyPlane/[Dd]ebug/
 #visual studio
-.vs
+.vs/
