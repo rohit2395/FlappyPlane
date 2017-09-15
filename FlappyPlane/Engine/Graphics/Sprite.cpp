@@ -2,24 +2,21 @@
 //#include <iostream>
 //using namespace std;
 Sprite::Sprite() {
-  xPos = 0;
-  yPos = 0;
+  pos = Vector3(0);
   texture = Texture();
   rotation = 0;
   speed = 5;
 }
 
 Sprite::Sprite(string _imagePath) {
-  xPos = 0;
-  yPos = 0;
+  pos = Vector3(0);
   texture = Texture(_imagePath);
   rotation = 0;
   speed = 5;
 }
 
-Sprite::Sprite(string _imagePath, float _xPos, float _yPos) {
-  xPos = _xPos;
-  yPos = _yPos;
+Sprite::Sprite(string _imagePath,Vector3 pos) {
+  pos = Vector3(pos);
   texture = Texture(_imagePath);
   rotation = 0;
   speed = 5;
@@ -34,9 +31,9 @@ void Sprite::Render() {
   glLoadIdentity();
 
   //translate -> rotate -> scale
-  glTranslatef(xPos, yPos, 0);
+  glTranslatef(pos.x,pos.y, 0);
   glRotatef(rotation, 0, 0, 1);
-  glScalef(xScale, yScale, 1);
+  glScalef(scale.x,scale.y, 1);
   //rendering
   glColor4f(1, 1, 1, 1);
   glBegin(GL_QUADS);
@@ -48,50 +45,51 @@ void Sprite::Render() {
   glDisable(GL_TEXTURE_2D);
 }
 
-void Sprite::SpeedTo(float _speed) {
+void Sprite::SpeedTo(double _speed) {
   speed = _speed;
 }
 
-void Sprite::SpeedBy(float _speed) {
+void Sprite::SpeedBy(double _speed) {
   speed += _speed;
 }
 
-void Sprite::MoveTo(float _xPos, float _yPos) {
-  xPos = _xPos;
-  yPos = _yPos;
+void Sprite::MoveTo(Vector3 _pos) {
+  pos = _pos;
+}
+
+void Sprite::MoveBy(Vector3 _pos) {
+  pos = pos + _pos;
 }
 
 void Sprite::MoveLeft() {
-  xPos -= speed;
+  pos = pos - Vector3(speed, 0, 0);
 }
 
 void Sprite::MoveRight() {
   //cout << xPos << endl;
-  xPos += speed;
+  pos = pos + Vector3(speed, 0, 0);
   //cout << speed<<endl;
 }
 
 void Sprite::MoveUp() {
-  yPos += speed;
+  pos = pos + Vector3(0, speed, 0);
 }
 
 void Sprite::MoveDown() {
-  yPos -= speed;
+  pos = pos - Vector3(0, speed, 0);
 }
 
-void Sprite::RotateTo(float _rotation) {
+void Sprite::RotateTo(double _rotation) {
   rotation = _rotation;
 }
 
-void Sprite::RotateBy(float _rotation) {
+void Sprite::RotateBy(double _rotation) {
   rotation += _rotation;
 }
 
-void Sprite::SetScale(float _xyScale) {
-  xScale = _xyScale;
-  yScale = _xyScale;
+void Sprite::SetScale(double _xyScale) {
+  scale = Vector3(_xyScale);
 }
-void Sprite::SetScale(float _xScale, float _yScale) {
-  xScale = _xScale;
-  yScale = _yScale;
+void Sprite::SetScale(Vector3 scale) {
+  scale = scale;
 }

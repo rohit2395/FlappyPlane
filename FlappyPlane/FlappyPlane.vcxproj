@@ -116,6 +116,7 @@
     <ClCompile Include="Engine\IO\Mouse.cpp" />
     <ClCompile Include="Engine\Graphics\Sprite.cpp" />
     <ClCompile Include="Engine\Graphics\Texture.cpp" />
+    <ClCompile Include="Engine\Math\Vector3.cpp" />
     <ClCompile Include="FlappyPlane.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -124,6 +125,7 @@
     <ClInclude Include="Engine\IO\Mouse.h" />
     <ClInclude Include="Engine\Graphics\Sprite.h" />
     <ClInclude Include="Engine\Graphics\Texture.h" />
+    <ClInclude Include="Engine\Math\Vector3.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

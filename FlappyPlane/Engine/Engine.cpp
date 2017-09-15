@@ -1,8 +1,8 @@
 #include "Engine.h"
 #include "IO\Mouse.h"
 #include "IO\Keyboard.h"
-int Engine::SCREEN_WIDTH = 1366 * 2 / 3;
-int Engine::SCREEN_HEIGHT = 768 * 2 / 3;
+int Engine::SCREEN_WIDTH = 1366 * 2 / 5;
+int Engine::SCREEN_HEIGHT = 768 * 2 / 5;
 GLFWwindow* Engine::window = NULL;
 
 Engine::Engine() {

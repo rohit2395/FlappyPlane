@@ -5,7 +5,7 @@
 
 class Mouse {
 public:
-  static void MousePosCallback(GLFWwindow* window,double _x,double _y);
+  static void MousePosCallback(GLFWwindow* window,double _x, double _y);
   static void MouseButtonCallback(GLFWwindow* window, int button, int action, int mods);
   
   static double GetMouseX();

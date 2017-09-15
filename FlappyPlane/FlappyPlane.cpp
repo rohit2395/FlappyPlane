@@ -9,6 +9,11 @@ using namespace std;
 int main() {
   cout << "Hello Flappy Plane!" << endl;
 
+  //configuration
+  static double SPEED = 0.05;
+  static double ROTATION_SPEED = 1.0;
+  static double SCALE = 0.1F;
+
   Engine engine;
   engine.Initialize("Flappy Plane!");
 
@@ -21,21 +26,21 @@ int main() {
 
   Sprite testSprite = Sprite("Assets/Art/DinoPlane.png");
   //Sprite testSprite = Sprite("Assets/Art/Biplane.png");
-  testSprite.SetScale(0.25f);
-  testSprite.SpeedTo(0.1);
+  testSprite.SetScale(SCALE);
+  testSprite.SpeedTo(SPEED);
   while (true) {
 
     double now = glfwGetTime();
     delta += (now - lastTime) / ns;
     lastTime = now;
 
-    //testSprite.MoveTo((float)Mouse::GetMouseX(), (float)Mouse::GetMouseY());
+    //testSprite.MoveTo((double)Mouse::GetMouseX(), (double)Mouse::GetMouseY());
     if (Mouse::ButtonDown(GLFW_MOUSE_BUTTON_LEFT))
-      testSprite.RotateBy(10);
+      testSprite.RotateBy(ROTATION_SPEED);
     if (Mouse::ButtonUp(GLFW_MOUSE_BUTTON_RIGHT))
-      testSprite.RotateBy(-10);
+      testSprite.RotateBy(-ROTATION_SPEED);
     if (Mouse::Button(GLFW_MOUSE_BUTTON_MIDDLE))
-      testSprite.RotateBy(0.1);
+      testSprite.RotateBy(ROTATION_SPEED/10);
 
     if (Keyboard::Key(GLFW_KEY_W))
       testSprite.MoveUp();
