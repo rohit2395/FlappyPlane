@@ -1,4 +1,7 @@
-﻿  FlappyPlane.cpp
-c:\users\gs-1558\documents\visual studio 2017\projects\flappyplane\flappyplane\flappyplane.cpp(27): warning C4305: 'argument': truncation from 'double' to 'float'
+﻿  Engine.cpp
+SOIL.lib(image_DXT.obj) : warning LNK4099: PDB 'SOIL.pdb' was not found with 'SOIL.lib(image_DXT.obj)' or at 'C:\Users\GS-1558\Documents\Visual Studio 2017\Projects\FlappyPlane\Debug\SOIL.pdb'; linking object as if no debug info
+SOIL.lib(image_helper.obj) : warning LNK4099: PDB 'SOIL.pdb' was not found with 'SOIL.lib(image_helper.obj)' or at 'C:\Users\GS-1558\Documents\Visual Studio 2017\Projects\FlappyPlane\Debug\SOIL.pdb'; linking object as if no debug info
+SOIL.lib(SOIL.obj) : warning LNK4099: PDB 'SOIL.pdb' was not found with 'SOIL.lib(SOIL.obj)' or at 'C:\Users\GS-1558\Documents\Visual Studio 2017\Projects\FlappyPlane\Debug\SOIL.pdb'; linking object as if no debug info
+SOIL.lib(stb_image_aug.obj) : warning LNK4099: PDB 'SOIL.pdb' was not found with 'SOIL.lib(stb_image_aug.obj)' or at 'C:\Users\GS-1558\Documents\Visual Studio 2017\Projects\FlappyPlane\Debug\SOIL.pdb'; linking object as if no debug info
   FlappyPlane.vcxproj -> C:\Users\GS-1558\Documents\Visual Studio 2017\Projects\FlappyPlane\Debug\FlappyPlane.exe
   FlappyPlane.vcxproj -> C:\Users\GS-1558\Documents\Visual Studio 2017\Projects\FlappyPlane\Debug\FlappyPlane.pdb (Partial PDB)

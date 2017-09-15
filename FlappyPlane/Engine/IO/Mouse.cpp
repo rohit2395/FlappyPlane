@@ -1,8 +1,5 @@
 #include "Mouse.h"
 
-#include<iostream>
-using namespace std;
-
 double Mouse::x = 0, Mouse::y = 0;
 bool Mouse::buttons[GLFW_MOUSE_BUTTON_LAST] = {0};
 bool Mouse::buttonsUp[GLFW_MOUSE_BUTTON_LAST] = { 0 };
@@ -15,8 +12,6 @@ void Mouse::MousePosCallback(GLFWwindow* window ,double _x,double _y){
 
   x = _x;
   y = height - _y;
-
-  cout << "mouse X : " << x << endl;
 }
 
 void Mouse::MouseButtonCallback(GLFWwindow* window, int button, int action, int mods) {

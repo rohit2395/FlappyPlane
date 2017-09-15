@@ -1,10 +1,9 @@
 #include "Engine.h"
 #include "IO\Mouse.h"
-
+#include "IO\Keyboard.h"
 int Engine::SCREEN_WIDTH = 1366 * 2 / 3;
 int Engine::SCREEN_HEIGHT = 768 * 2 / 3;
 GLFWwindow* Engine::window = NULL;
-
 
 Engine::Engine() {
 
@@ -12,6 +11,10 @@ Engine::Engine() {
 
 Engine::~Engine() {
 
+}
+
+void Engine::SetWindowTitle(const char* windowTitle) {
+  glfwSetWindowTitle(window, windowTitle);
 }
 
 bool Engine::Initialize(char* windowTitle) {
@@ -34,15 +37,16 @@ bool Engine::Initialize(char* windowTitle) {
 
   glfwSetCursorPosCallback(window, Mouse::MousePosCallback);
   glfwSetMouseButtonCallback(window, Mouse::MouseButtonCallback);
+  glfwSetKeyCallback(window, Keyboard::KeyCallback);
 
   const GLFWvidmode* mode = glfwGetVideoMode(glfwGetPrimaryMonitor());
-  cout << mode->height << endl;
-  cout << mode->width << endl;
-  cout << SCREEN_HEIGHT << endl;
-  cout << SCREEN_WIDTH << endl;
+  //cout << mode->height << endl;
+  //cout << mode->width << endl;
+  //cout << SCREEN_HEIGHT << endl;
+  //cout << SCREEN_WIDTH << endl;
   int xPos = (mode->width - SCREEN_WIDTH) / 2;
   int yPos = (mode->height - SCREEN_HEIGHT) / 2;
-  cout << xPos << endl << yPos << endl;
+  //cout << xPos << endl << yPos << endl;
   glfwSetWindowPos(window, xPos, yPos);
 
 
@@ -59,7 +63,6 @@ bool Engine::Initialize(char* windowTitle) {
   glEnable(GL_ALPHA_TEST);
   glEnable(GL_BLEND);
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
   return true;
 }
 

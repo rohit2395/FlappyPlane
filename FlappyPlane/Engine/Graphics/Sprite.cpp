@@ -1,10 +1,12 @@
 #include "Sprite.h"
-
+//#include <iostream>
+//using namespace std;
 Sprite::Sprite() {
   xPos = 0;
   yPos = 0;
   texture = Texture();
   rotation = 0;
+  speed = 5;
 }
 
 Sprite::Sprite(string _imagePath) {
@@ -12,6 +14,7 @@ Sprite::Sprite(string _imagePath) {
   yPos = 0;
   texture = Texture(_imagePath);
   rotation = 0;
+  speed = 5;
 }
 
 Sprite::Sprite(string _imagePath, float _xPos, float _yPos) {
@@ -19,6 +22,7 @@ Sprite::Sprite(string _imagePath, float _xPos, float _yPos) {
   yPos = _yPos;
   texture = Texture(_imagePath);
   rotation = 0;
+  speed = 5;
 }
 
 void Sprite::Update() {
@@ -44,16 +48,42 @@ void Sprite::Render() {
   glDisable(GL_TEXTURE_2D);
 }
 
-void Sprite::SetPos(float _xPos, float _yPos) {
+void Sprite::SpeedTo(float _speed) {
+  speed = _speed;
+}
+
+void Sprite::SpeedBy(float _speed) {
+  speed += _speed;
+}
+
+void Sprite::MoveTo(float _xPos, float _yPos) {
   xPos = _xPos;
   yPos = _yPos;
 }
 
-void Sprite::SetRotationTo(float _rotation) {
+void Sprite::MoveLeft() {
+  xPos -= speed;
+}
+
+void Sprite::MoveRight() {
+  //cout << xPos << endl;
+  xPos += speed;
+  //cout << speed<<endl;
+}
+
+void Sprite::MoveUp() {
+  yPos += speed;
+}
+
+void Sprite::MoveDown() {
+  yPos -= speed;
+}
+
+void Sprite::RotateTo(float _rotation) {
   rotation = _rotation;
 }
 
-void Sprite::SetRotationBy(float _rotation) {
+void Sprite::RotateBy(float _rotation) {
   rotation += _rotation;
 }
 

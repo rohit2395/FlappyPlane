@@ -20,6 +20,7 @@ public:
   void Update();
   void BeginRender();
   void EndRender();
+  void SetWindowTitle(const char* windowTitle);
 
 private:
   static GLFWwindow* window;

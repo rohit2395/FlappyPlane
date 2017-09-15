@@ -13,11 +13,23 @@ public:
   Sprite();
   Sprite(string _imagePath);
   Sprite(string _imagePath, float _xPos, float _yPos);
+  
   void Update();
   void Render();
-  void SetPos(float _xPos, float _yPos);
-  void SetRotationTo(float _rotation);
-  void SetRotationBy(float _rotation);
+  
+  void SpeedTo(float _speed);
+  void SpeedBy(float _speed);
+
+  void MoveTo(float _xPos, float _yPos);
+  void MoveBy(float _xPos, float _yPos);
+  void MoveLeft();
+  void MoveRight();
+  void MoveUp();
+  void MoveDown();
+
+  void RotateTo(float _rotation);
+  void RotateBy(float _rotation);
+
   void SetScale(float _xyScale);
   void SetScale(float _xScale,float _yScale);
 private:
@@ -27,6 +39,7 @@ private:
   float rotation;
   float xScale;
   float yScale;
+  float speed;
 };
 
 #endif FLAPPY_SPRITE
