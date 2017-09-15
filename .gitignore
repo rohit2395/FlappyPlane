@@ -1,3 +1,6 @@
 Debug/
 FlappyPlane/Debug/
+x64/
+FlappyPlane/x64/
+packages/
 .vs/*
