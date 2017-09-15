@@ -1,5 +1,3 @@
 Debug/
-x64/
 FlappyPlane/Debug/
-FlappyPlane/x64
-.vs
+.vs/*
