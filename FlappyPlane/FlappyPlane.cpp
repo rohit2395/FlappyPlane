@@ -2,6 +2,8 @@
 #include "Engine\Graphics\Sprite.h"
 #include "Engine\IO\Mouse.h"
 #include "Engine\IO\Keyboard.h"
+#include "Game\Flapper.h"
+
 #include <iostream>
 #include <stdio.h>
 using namespace std;
@@ -10,8 +12,8 @@ int main() {
   cout << "Hello Flappy Plane!" << endl;
 
   //configuration
-  static double SPEED = 0.05;
-  static double ROTATION_SPEED = 1.0;
+  static double SPEED = 0.1;
+  static double ROTATION_SPEED = 10.0;
   static double SCALE = 0.1F;
 
   Engine engine;
@@ -28,6 +30,9 @@ int main() {
   //Sprite testSprite = Sprite("Assets/Art/Biplane.png");
   testSprite.SetScale(SCALE);
   testSprite.SpeedTo(SPEED);
+
+  Flapper player(testSprite);
+
   while (true) {
 
     double now = glfwGetTime();
@@ -35,31 +40,48 @@ int main() {
     lastTime = now;
 
     //testSprite.MoveTo((double)Mouse::GetMouseX(), (double)Mouse::GetMouseY());
-    if (Mouse::ButtonDown(GLFW_MOUSE_BUTTON_LEFT))
-      testSprite.RotateBy(ROTATION_SPEED);
+    /*if (Mouse::ButtonDown(GLFW_MOUSE_BUTTON_LEFT))
+      player.GetSprite().RotateBy(ROTATION_SPEED);
     if (Mouse::ButtonUp(GLFW_MOUSE_BUTTON_RIGHT))
-      testSprite.RotateBy(-ROTATION_SPEED);
+      player.GetSprite().RotateBy(-ROTATION_SPEED);
     if (Mouse::Button(GLFW_MOUSE_BUTTON_MIDDLE))
-      testSprite.RotateBy(ROTATION_SPEED/10);
+      player.GetSprite().RotateBy(ROTATION_SPEED/10);
 
     if (Keyboard::Key(GLFW_KEY_W))
-      testSprite.MoveUp();
+      player.GetRb().AddForce(Vector3(0,0.005,0));
     if (Keyboard::Key(GLFW_KEY_D))
-      testSprite.MoveRight();
+      player.GetRb().AddForce(Vector3(0.005, 0,0));
     if (Keyboard::Key(GLFW_KEY_S))
-      testSprite.MoveDown();
+      player.GetRb().AddForce(Vector3(0, -0.005, 0));
     if (Keyboard::Key(GLFW_KEY_A))
-      testSprite.MoveLeft();
+      player.GetRb().AddForce(Vector3(-0.05, 0, 0));*/
 
     if (delta >= 1.0) {
+      //testSprite.MoveTo((double)Mouse::GetMouseX(), (double)Mouse::GetMouseY());
+      if (Mouse::ButtonDown(GLFW_MOUSE_BUTTON_LEFT))
+        player.GetSprite().RotateBy(ROTATION_SPEED);
+      if (Mouse::ButtonUp(GLFW_MOUSE_BUTTON_RIGHT))
+        player.GetSprite().RotateBy(-ROTATION_SPEED);
+      if (Mouse::Button(GLFW_MOUSE_BUTTON_MIDDLE))
+        player.GetSprite().RotateBy(ROTATION_SPEED / 10);
+
+      if (Keyboard::Key(GLFW_KEY_W))
+        player.GetRb().AddForce(Vector3(0, SPEED, 0));
+      if (Keyboard::Key(GLFW_KEY_D))
+        player.GetRb().AddForce(Vector3(SPEED, 0, 0));
+      if (Keyboard::Key(GLFW_KEY_S))
+        player.GetRb().AddForce(Vector3(0,-SPEED, 0));
+      if (Keyboard::Key(GLFW_KEY_A))
+        player.GetRb().AddForce(Vector3(-SPEED, 0, 0));
+
       engine.Update();
-      testSprite.Update();
+      player.Update();
       updates++;
       delta--;
     }
 
     engine.BeginRender();
-    testSprite.Render();
+    player.Render();
     engine.EndRender();
     frames++;
 

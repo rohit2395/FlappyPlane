@@ -6,6 +6,8 @@ Sprite::Sprite() {
   texture = Texture();
   rotation = 0;
   speed = 5;
+  scale = Vector3(1);
+  size = Vector3(0);
 }
 
 Sprite::Sprite(string _imagePath) {
@@ -13,13 +15,17 @@ Sprite::Sprite(string _imagePath) {
   texture = Texture(_imagePath);
   rotation = 0;
   speed = 5;
+  scale = Vector3(1);
+  size = Vector3((double)texture.GetWidth(), (double)texture.GetHeight(),1);
 }
 
-Sprite::Sprite(string _imagePath,Vector3 pos) {
+Sprite::Sprite(string _imagePath, Vector3 pos) {
   pos = Vector3(pos);
   texture = Texture(_imagePath);
   rotation = 0;
   speed = 5;
+  scale = Vector3(1);
+  size = Vector3((double)texture.GetWidth(), (double)texture.GetHeight(), 0.5);
 }
 
 void Sprite::Update() {
@@ -31,16 +37,18 @@ void Sprite::Render() {
   glLoadIdentity();
 
   //translate -> rotate -> scale
-  glTranslatef(pos.x,pos.y, 0);
+  glTranslatef(pos.x, pos.y, 0);
   glRotatef(rotation, 0, 0, 1);
-  glScalef(scale.x,scale.y, 1);
+  glScalef(scale.x, scale.y, 1);
   //rendering
   glColor4f(1, 1, 1, 1);
-  glBegin(GL_QUADS);
-  glTexCoord2f(0, 0);  glVertex2f(0, 0);
-  glTexCoord2f(1, 0);  glVertex2f(texture.GetWidth(), 0);
-  glTexCoord2f(1, 1);  glVertex2f(texture.GetWidth(), texture.GetHeight());
-  glTexCoord2f(0, 1);  glVertex2f(0, texture.GetHeight());
+  {
+    glBegin(GL_QUADS);
+    glTexCoord2f(0, 0);  glVertex2f(0, 0);
+    glTexCoord2f(1, 0);  glVertex2f(texture.GetWidth(), 0);
+    glTexCoord2f(1, 1);  glVertex2f(texture.GetWidth(), texture.GetHeight());
+    glTexCoord2f(0, 1);  glVertex2f(0, texture.GetHeight());
+  }
   glEnd();
   glDisable(GL_TEXTURE_2D);
 }
@@ -92,4 +100,17 @@ void Sprite::SetScale(double _xyScale) {
 }
 void Sprite::SetScale(Vector3 scale) {
   scale = scale;
+}
+
+Vector3* Sprite::GetPos() {
+  return &pos;
+}
+double* Sprite::GetRotation() {
+  return &rotation;
+}
+Vector3* Sprite::GetScale() {
+  return &scale;
+}
+Vector3* Sprite::GetSize() {
+  return &size;
 }

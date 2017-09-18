@@ -33,12 +33,20 @@ public:
 
   void SetScale(double _xyScale);
   void SetScale(Vector3 scale);
+
+  Vector3* GetPos();
+  double* GetRotation();
+  Vector3* GetScale();
+  Vector3* GetSize();
 private:
   Texture texture;
+  
+  double speed;
+  
   Vector3 pos;
   double rotation;
   Vector3 scale;
-  double speed;
+  Vector3 size;
 };
 
 #endif FLAPPY_SPRITE
