@@ -13,6 +13,7 @@ public:
   void Render(Vector3 color);
 
   void AddForce(Vector3 force);
+  void SetVel(Vector3 _vel);
 
 private:
   Vector3* pos;

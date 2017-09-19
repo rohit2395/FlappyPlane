@@ -29,33 +29,39 @@ void RigidBody::Update() {
 
   velocity.y -= gravity;
   *pos = *pos + velocity;
+
+  cout << pos->y << endl;
   //velocity = Vector3(0);
 }
 
 void RigidBody::Render(Vector3 color) {
   glLoadIdentity();
   glTranslatef(pos->x, pos->y, pos->z);
-  glRotatef(*rotation,0,0,1);
+  glRotatef(*rotation, 0, 0, 1);
   glScalef(scale->x, scale->y, scale->z);
 
   glColor4f(color.x, color.y, color.z, 1);
   glBegin(GL_LINES);
   {
-    glVertex2i(0, 0);
-    glVertex2i((int)size->x, 0);
+    glVertex2i((int)-size->x / 2, (int)-size->y / 2);
+    glVertex2i((int)size->x / 2, (int)-size->y / 2);
 
-    glVertex2i((int)size->x, 0);
-    glVertex2i((int)size->x, (int)size->y);
-    
-    glVertex2i((int)size->x, (int)size->y);
-    glVertex2i(0, (int)size->y);
+    glVertex2i((int)size->x / 2, (int)-size->y / 2);
+    glVertex2i((int)size->x / 2, (int)size->y / 2);
 
-    glVertex2i(0, (int)size->y);
-    glVertex2i(0, 0);
+    glVertex2i((int)size->x / 2, (int)size->y / 2);
+    glVertex2i((int)-size->x / 2, (int)size->y / 2);
+
+    glVertex2i((int)-size->x / 2, (int)size->y / 2);
+    glVertex2i((int)-size->x / 2, (int)-size->y / 2);
   }
   glEnd();
 }
 
 void RigidBody::AddForce(Vector3 force) {
   velocity = velocity + force;
+}
+
+void RigidBody::SetVel(Vector3 _vel) {
+  velocity = _vel;
 }

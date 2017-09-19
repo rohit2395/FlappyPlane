@@ -13,7 +13,7 @@ class Sprite {
 public:
   Sprite();
   Sprite(string _imagePath);
-  Sprite(string _imagePath, Vector3 pos);
+  Sprite(string _imagePath, Vector3 _pos);
   
   void Update();
   void Render();
@@ -21,8 +21,8 @@ public:
   void SpeedTo(double _speed);
   void SpeedBy(double _speed);
 
-  void MoveTo(Vector3 pos);
-  void MoveBy(Vector3 pos);
+  void MoveTo(Vector3 _pos);
+  void MoveBy(Vector3 _pos);
   void MoveLeft();
   void MoveRight();
   void MoveUp();

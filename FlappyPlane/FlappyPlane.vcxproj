@@ -119,6 +119,7 @@
     <ClCompile Include="Engine\Math\Vector3.cpp" />
     <ClCompile Include="Engine\Physics\RigidBody.cpp" />
     <ClCompile Include="FlappyPlane.cpp" />
+    <ClCompile Include="Game\EventManager.cpp" />
     <ClCompile Include="Game\Flapper.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +130,7 @@
     <ClInclude Include="Engine\Graphics\Texture.h" />
     <ClInclude Include="Engine\Math\Vector3.h" />
     <ClInclude Include="Engine\Physics\RigidBody.h" />
+    <ClInclude Include="Game\EventManager.h" />
     <ClInclude Include="Game\Flapper.h" />
   </ItemGroup>
   <ItemGroup>
