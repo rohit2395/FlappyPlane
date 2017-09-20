@@ -30,7 +30,6 @@ void RigidBody::Update() {
   velocity.y -= gravity;
   *pos = *pos + velocity;
 
-  cout << pos->y << endl;
   //velocity = Vector3(0);
 }
 

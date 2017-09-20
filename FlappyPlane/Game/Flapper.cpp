@@ -12,11 +12,11 @@ Flapper::Flapper(Sprite _sprite, double _scale) {
 Flapper::Flapper(char* _spritepath, double _scale) {
   sprite = Sprite(_spritepath,Vector3(200,100,0));
   sprite.SetScale(_scale);
-  rb.Initialize(sprite.GetPos(), sprite.GetRotation(), sprite.GetScale(), sprite.GetSize(), 0.2, 0.03);
+  rb.Initialize(sprite.GetPos(), sprite.GetRotation(), sprite.GetScale(), sprite.GetSize(), 0.5, 0.03);
 }
 
 void Flapper::Flap() {
-  rb.SetVel(Vector3(0,7, 0));
+  rb.SetVel(Vector3(0,12, 0));
   sprite.RotateTo(10);
 }
 
